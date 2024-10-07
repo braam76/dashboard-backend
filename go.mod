@@ -2,10 +2,18 @@ module github.com/braam76/dashboard-backend
 
 go 1.23.1
 
-require github.com/joho/godotenv v1.5.1
+require (
+	github.com/go-ozzo/ozzo-validation/v4 v4.3.0
+	github.com/gorilla/sessions v1.4.0
+	github.com/joho/godotenv v1.5.1
+	github.com/labstack/echo-contrib v0.17.1
+)
 
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
+	github.com/asaskevich/govalidator v0.0.0-20200108200545-475eaeb16496 // indirect
+	github.com/gorilla/context v1.1.2 // indirect
+	github.com/gorilla/securecookie v1.1.2 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 )

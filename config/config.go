@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/gorilla/sessions"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
@@ -12,10 +13,11 @@ import (
 )
 
 var (
-	addr     = os.Getenv("MYSQL_ADDR")
-	username = os.Getenv("MYSQL_USER")
-	password = os.Getenv("MYSQL_PASSWORD")
-	database = os.Getenv("MYSQL_DATABASE")
+	addr       = os.Getenv("MYSQL_ADDR")
+	username   = os.Getenv("MYSQL_USER")
+	password   = os.Getenv("MYSQL_PASSWORD")
+	database   = os.Getenv("MYSQL_DATABASE")
+	sessionKey = os.Getenv("SESSION_KEY")
 )
 
 func NewDB() *gorm.DB {
@@ -30,4 +32,8 @@ func NewDB() *gorm.DB {
 	}
 
 	return db
+}
+
+func NewStore() *sessions.CookieStore {
+	return sessions.NewCookieStore([]byte(sessionKey))
 }
